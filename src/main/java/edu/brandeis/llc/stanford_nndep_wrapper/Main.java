@@ -1,4 +1,4 @@
-package edu.brandeis.nlp.stanford_nndep_wrapper;
+package edu.brandeis.llc.stanford_nndep_wrapper;
 
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.parser.nndep.DependencyParser;
