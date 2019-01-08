@@ -16,7 +16,6 @@ public class Main {
     static DependencyParser p = new DependencyParser(new Properties());
 
     public static void main(String[] args) {
-        p.loadModelFile("english_UD.gz");
         if (args.length > 0) {
             help();
             System.exit(0);
@@ -30,6 +29,7 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         int sentIdx = 1;
+        p.loadModelFile("english_UD.gz");
         while (input.hasNext()) {
             String inputLine = input.nextLine();
             String[] inputTokens = inputLine.split(" ");
