@@ -8,10 +8,7 @@ import edu.stanford.nlp.trees.TypedDependency;
 import org.apache.commons.cli.*;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -52,12 +49,6 @@ public class Main {
         String outfile = argv.hasOption('o') ? argv.getOptionValue('o') : null;
         ANNOTATION_DELIMITER = argv.hasOption('d') && argv.getOptionValue('d').length() == 1 ? argv.getOptionValue('d') : "/";
 
-        // quick sanity check
-//        String sample = "The/DT Fulton_County_Grand_Jury/NNP said/VB Friday/NN an/DT investigation/NN of/IN Atlanta/NN 's/POS recent/JJ primary_election/NN produced/VB `/` no/DT evidence/NN '/' that/IN any/DT irregularities/NN took_place/VB ./.";
-//        String sample = "The/DT Fulton_County_Grand_Jury/NNP said/VB Friday/NN an/DT investigation/NN of/IN Atlanta/NN 's/POS recent/JJ primary_election/NN produced/VB `/` no/DT evidence/NN '/' that/IN any/DT irregularities/NN took_place/VB ./." +
-//                "\nThe/the/DT Fulton_County_Grand_Jury/fcgj/NNP said/say/VB Friday/friday/NN an/a/DT investigation/investigae/NN of/of/IN Atlanta/atlanta/NN 's/s/POS recent/recent/JJ primary_election/pe/NN produced/produce/VB `/`/` no/no/DT evidence/evidence/NN '/'/' that/that/IN any/a/DT irregularities/irregularity/NN took_place/take_place/VB ./.";
-//        Scanner input = new Scanner(sample);
-
         Scanner input = null;
         if (infile == null) {
             input = new Scanner(System.in);
@@ -87,7 +78,6 @@ public class Main {
             }
         }
 
-//        Scanner input = new Scanner(infile == null ? System.in : new File(infile));
         int sentIdx = 1;
         p.loadModelFile("english_UD.gz");
         if (input == null) {
