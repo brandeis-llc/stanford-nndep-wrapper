@@ -103,7 +103,9 @@ public class Main {
                     lemma = tsplit[1];
                     pos = tsplit[2];
                 } else {
-                    error("unknown input format");
+                    error(String.format(
+                            "unknown input format:\n\texpecting WORD%1$sPOS or WORD%1$sLEMMA%1$sPOS, found \"%2$s\" at line %3$d",
+                            ANNOTATION_DELIMITER, token, sentIdx));
                 }
                 originalSentence.append(word).append(" ");
                 CoreLabel coreToken = tf.makeToken(word, 0, 0);
