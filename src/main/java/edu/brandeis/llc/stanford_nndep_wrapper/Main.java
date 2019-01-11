@@ -18,7 +18,7 @@ public class Main {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Options options = new Options();
         Option help = new Option("h", "help", true, "print this message");
@@ -137,7 +137,7 @@ public class Main {
                             rel.gov().index(),
                             rel.reln().getShortName());
                 } else {
-                    error("indexed mismatch: " + token.index() + " // " + token.word());
+                    error("found mismatch in token index: " + token.index() + " // " + token.word());
                 }
                 tokenIdx++;
             }
@@ -146,9 +146,8 @@ public class Main {
         }
     }
 
-    private static void error(String msg) {
-        System.err.println(msg);
-        System.exit(1);
+    private static void error(String msg) throws Exception {
+        throw new Exception(msg);
     }
 
     private static void help(Options options) {
